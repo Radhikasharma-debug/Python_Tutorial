@@ -1,0 +1,25 @@
+version: 1
+created_utc: "2026-04-13T00:00:00Z"
+
+split_seeds:
+  train: 11173
+  public: 24571
+  private: 39827
+
+perturbation_seeds:
+  low: 50711
+  medium: 61843
+  high: 72917
+
+evaluation_seeds:
+  - 101
+  - 211
+  - 307
+  - 401
+  - 509
+
+baseline_seeds:
+  accuracy_greedy: 9001
+  calibrated_static: 9002
+  adaptive_bandit: 9003
+  reflective_heuristic: 9004
