@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agi-meta.local/schema/submission-v1.json",
+  "title": "AGI-META Submission v1",
+  "type": "object",
+  "required": [
+    "model_name",
+    "model_version",
+    "seed_used",
+    "episodes"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "model_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "model_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "seed_used": {
+      "type": "integer"
+    },
+    "episodes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "episode_id",
+          "final_answer",
+          "step_trace",
+          "reflection",
+          "budget_used"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "episode_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "final_answer": {},
+          "step_trace": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": [
+                "step_id",
+                "action_type",
+                "confidence",
+                "output"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "step_id": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "action_type": {
+                  "type": "string",
+                  "enum": [
+                    "plan",
+                    "act",
+                    "check",
+                    "switch",
+                    "reflect"
+                  ]
+                },
+                "confidence": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                "output": {}
+              }
+            }
+          },
+          "reflection": {
+            "type": "object",
+            "required": [
+              "error_cause",
+              "update_rule"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "error_cause": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000
+              },
+              "update_rule": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000
+              }
+            }
+          },
+          "budget_used": {
+            "type": "object",
+            "required": [
+              "tokens",
+              "seconds"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "tokens": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "seconds": {
+                "type": "number",
+                "minimum": 0
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
