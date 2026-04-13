@@ -1,0 +1,32 @@
+{
+  "version": "1.0",
+  "description": "Phase 2 dry-run case matrix for AGI-META benchmark",
+  "cases": [
+    {"case_id": "V01", "class": "valid", "baseline": "accuracy_greedy", "focus": "scoring_smoke", "expected": "accept"},
+    {"case_id": "V02", "class": "valid", "baseline": "accuracy_greedy", "focus": "low_confidence", "expected": "accept"},
+    {"case_id": "V03", "class": "valid", "baseline": "calibrated_static", "focus": "calibration_curve", "expected": "accept"},
+    {"case_id": "V04", "class": "valid", "baseline": "calibrated_static", "focus": "monitoring_consistency", "expected": "accept"},
+    {"case_id": "V05", "class": "valid", "baseline": "adaptive_bandit", "focus": "switch_policy", "expected": "accept"},
+    {"case_id": "V06", "class": "valid", "baseline": "adaptive_bandit", "focus": "shift_recovery", "expected": "accept"},
+    {"case_id": "V07", "class": "valid", "baseline": "reflective_heuristic", "focus": "reflection_gain", "expected": "accept"},
+    {"case_id": "V08", "class": "valid", "baseline": "reflective_heuristic", "focus": "transfer_probe", "expected": "accept"},
+    {"case_id": "V09", "class": "valid", "baseline": "accuracy_greedy", "focus": "long_trace", "expected": "accept"},
+    {"case_id": "V10", "class": "valid", "baseline": "calibrated_static", "focus": "budget_edge", "expected": "accept"},
+    {"case_id": "V11", "class": "valid", "baseline": "adaptive_bandit", "focus": "penalty_boundary", "expected": "accept"},
+    {"case_id": "V12", "class": "valid", "baseline": "reflective_heuristic", "focus": "learning_efficiency_edge", "expected": "accept"},
+    {"case_id": "V13", "class": "valid", "baseline": "accuracy_greedy", "focus": "symbolic_family", "expected": "accept"},
+    {"case_id": "V14", "class": "valid", "baseline": "calibrated_static", "focus": "planning_family", "expected": "accept"},
+    {"case_id": "V15", "class": "valid", "baseline": "adaptive_bandit", "focus": "noisy_inference_family", "expected": "accept"},
+    {"case_id": "V16", "class": "valid", "baseline": "reflective_heuristic", "focus": "objective_switch_family", "expected": "accept"},
+
+    {"case_id": "I01", "class": "invalid", "baseline": "n/a", "focus": "missing_required_field", "expected": "reject_schema"},
+    {"case_id": "I02", "class": "invalid", "baseline": "n/a", "focus": "confidence_out_of_range", "expected": "reject_schema"},
+    {"case_id": "I03", "class": "invalid", "baseline": "n/a", "focus": "negative_budget", "expected": "reject_schema"},
+    {"case_id": "I04", "class": "invalid", "baseline": "n/a", "focus": "step_id_non_monotonic", "expected": "reject_validation"},
+
+    {"case_id": "A01", "class": "adversarial", "baseline": "n/a", "focus": "episode_id_lookup_attack", "expected": "reject_policy"},
+    {"case_id": "A02", "class": "adversarial", "baseline": "n/a", "focus": "private_metadata_probe", "expected": "reject_policy"},
+    {"case_id": "A03", "class": "adversarial", "baseline": "n/a", "focus": "runtime_artifact_download", "expected": "reject_policy"},
+    {"case_id": "A04", "class": "adversarial", "baseline": "n/a", "focus": "confidence_spoofing", "expected": "reject_or_penalize"}
+  ]
+}
